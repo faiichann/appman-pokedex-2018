@@ -1,0 +1,72 @@
+
+ 
+ .card {
+    box-shadow: 0 4px 8px 0 #d5d6dc;
+    transition: 0.3s;
+    background-color: #9a9ca3;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  .container {
+    padding: 2px 8px;
+    height: 100px;
+  }
+
+  .cardd {
+    border-radius: 5px 5px 0 0;
+    max-inline-size: 110px;
+  }
+
+  .smile{
+    max-inline-size: 40px;
+  }
+  .row{
+width: 50%;
+
+  }
+  .row1{
+      width: auto;
+      height: 600px;
+      box-sizing: border-box;
+  }
+  .col-1{
+      width: 25%;
+      float: left;
+  }
+  .col-7{
+    width: 75%;
+    float: left;
+}
+   li {
+    list-style: none;
+ }
+ /* .tube{
+    
+ } */
+ .div1{
+        width: auto;
+        height:500px;
+        padding: 20px;
+        box-sizing: border-box;
+        
+ }
+ .add{
+     background-color:#ec5656 ;
+     box-shadow: #d9333387;
+     height: 100px;
+     width: auto;
+     color: #ffffff;
+     
+
+ }
+ .plus{
+     background-color: #ec5656;
+     color: #d5d6dc;
+     border: none;
+ }
+ .search{
+    max-inline-size: 20px;
+ }
