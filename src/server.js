@@ -3,7 +3,7 @@ const cors = require('cors')
 const _ = require('lodash')
 const app = express()
 
-const { cards } = require('./../mock/cards.json')
+const { cards } = require('./../src/cards.json')
 
 app.use(cors())
 
