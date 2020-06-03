@@ -56,9 +56,12 @@ width: 50%;
  .add{
      background-color:#ec5656 ;
      box-shadow: #d9333387;
-     height: 100px;
-     width: auto;
+     height: 80px;
+     width: 70%;
      color: #ffffff;
+     position: fixed;
+     top: 770px;
+
      
 
  }
@@ -69,4 +72,11 @@ width: 50%;
  }
  .search{
     max-inline-size: 20px;
+ }
+
+ .back{
+   flex: 1;
+   background-color:rgb(243, 237, 237);
+   overflow-y:scroll;
+   height: 750px;
  }

@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
+import cute from '../cute.png'
+import '../App.css'
 import LinearProgress from '@material-ui/core/LinearProgress';
-class Card extends Component {
+import Card from 'react-bootstrap/Card'
+
+
+class Pokedex extends Component {
   constructor(props) {
     super(props);
     // Don't do this!
-    this.state = { list: [] };
+    this.state = { list: [],text:false };
   }
 
   onSelectCard = (item) => {
@@ -75,9 +79,34 @@ class Card extends Component {
     console.log(damage)
     return happyArray
   };
+
+show = () => {
+  this.setState({
+    text: true
+  })
+}
+hide = () => {
+  this.setState({
+
+    text: false
+  })
+}
+
+showtext = () => {
+
+  if (this.state.text === false)
+    return ''
+  else
+    return 'ADD'
+}
+  
+
   render() {
     return (
       <div style={{ padding: "20px" }}>
+           <Card style={{ width: '40rem'  }} onMouseOver={this.show} onMouseOut={this.hide} onClick={() => this.onSelectCard(this.props.item)} >
+             <center>{this.showtext()}</center>
+           <Card.Body  style={{ padding: "5px" }}>
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <img src={this.props.item.imageUrl} alt="picPokemon" />
@@ -85,23 +114,18 @@ class Card extends Component {
           <Grid item xs={6}>
             <h1>{this.props.item.name}</h1>
             <h4>HP : {this.props.item.hp >= 100 ? 100 : this.props.item.hp}</h4>
-            <h4>Strength : <LinearProgress variant="determinate" value={this.calStrength(this.props.item.attacks)} /></h4>
-            <h4>Weakness : <LinearProgress variant="determinate" value={this.calWeak(this.props.item.weaknesses)}/></h4>
-            <h4>Happy : {this.calHappiness(this.props.item).map(index =>{
-              return <InsertEmoticonIcon/>
+            <h4>Str: <LinearProgress  color="secondary" variant="determinate" value={this.calStrength(this.props.item.attacks)} /></h4>
+            <h4>Weak: <LinearProgress color="secondary"  variant="determinate" value={this.calWeak(this.props.item.weaknesses)}/></h4>
+            <h4> {this.calHappiness(this.props.item).map(index =>{
+              return <img class="smile" src={cute}></img>
             })}</h4>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => this.onSelectCard(this.props.item)}
-            >
-              Add
-            </Button>
           </Grid>
         </Grid>
+        </Card.Body>
+        </Card>
       </div>
     );
   }
 }
 
-export default Card;
+export default Pokedex;
