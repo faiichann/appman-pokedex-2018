@@ -56,11 +56,11 @@ width: 50%;
  .add{
      background-color:#ec5656 ;
      box-shadow: #d9333387;
-     height: 80px;
-     width: 70%;
-     color: #ffffff;
+     height: 90px;
+     width: 61.8%;
      position: fixed;
-     top: 770px;
+     top: 600px;
+     
 
      
 
@@ -75,8 +75,76 @@ width: 50%;
  }
 
  .back{
-   flex: 1;
-   background-color:rgb(243, 237, 237);
-   overflow-y:scroll;
-   height: 750px;
+  
+   background-color:rgb(255, 255, 255);
+   height: 720px;
+   /* padding-bottom:100px ; */
  }
+ .pic{
+  max-inline-size: 200px;
+ }
+ .section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+ .col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+
+/*  GROUPING  */
+.group:before,
+.group:after {
+	content:"";
+	display:table;
+}
+.group:after {
+	clear:both;
+}
+.group {
+    zoom:1; /* For IE 6/7 */
+}
+
+.span_2_of_2 {
+	width: auto;
+}
+
+.span_1_of_2 {
+	width: 49.2%;
+}
+/*  GRID OF THREE  */
+.span_3_of_3 {
+	width: 100%;
+}
+.span_2_of_3 {
+	width: 66.1%;
+}
+.span_1_of_3 {
+	width: 32.2%;
+}
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.col { margin: 1% 0 1% 0%;}
+	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+}
+
+.button {
+  background-color: #cc1d1ddc;
+  border: none;
+  color: white;
+  padding:20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 15px;
+  margin: 2px 4px;
+  cursor: pointer;
+}
+
+.circle {border-radius: 100%;}
