@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Newcard from "./Newcard";
 import Paper from "@material-ui/core/Paper";
-import List from "@material-ui/core/List";
 import Grid from "@material-ui/core/Grid";
 
 const Mypokedex = (props) => {
@@ -20,9 +19,7 @@ const Mypokedex = (props) => {
             <div style={{ paddingBottom: 10 ,width:"100%",display:"flex",flexDirection:"row",flexWrap:"wrap"}} >
               {props.myList.map((item) => {
                 return (
-                 
-                    <Newcard item={item} deleteSelected={props.deleteSelected} />
-                 
+                    <Newcard item={item} deleteSelected={props.deleteSelected} />     
                 );
               })}
             </div>
