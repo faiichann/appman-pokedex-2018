@@ -101,7 +101,7 @@ class Pokedex extends Component {
   render() {
     return (
       <div style={{ padding: "20px" }}>
-        <Card style={{ width: '40rem' }} onMouseOver={this.show} onMouseOut={this.hide} onClick={() => this.onSelectCard(this.props.item)} >
+        <Card style={{ width: '40rem' }} className="aAASa" onMouseOver={this.show} onMouseOut={this.hide} onClick={() => this.onSelectCard(this.props.item)} >
           <Card.Body style={{ padding: "5px" }}>
             <Grid container spacing={1}>
               <Grid item xs={6}>

@@ -61,7 +61,6 @@ class App extends Component {
   };
 
   newlist = (list) => {
-
     this.setState({ list: list })
   };
 
