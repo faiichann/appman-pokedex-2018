@@ -57,9 +57,9 @@ width: 50%;
      background-color:#ec5656 ;
      box-shadow: #d9333387;
      height: 90px;
-     width: 61.8%;
+     width: 53.5%;
      position: fixed;
-     top: 600px;
+     top: 750px;
      
 
      
@@ -148,3 +148,32 @@ width: 50%;
 }
 
 .circle {border-radius: 100%;}
+
+.appBar{
+  top: 'auto';
+  bottom: 0;
+  align-items: center;
+  background-color:#ec5656 ;
+  box-shadow: #d9333387;
+  position: 'absolute';
+  align-content: center;
+}
+
+.fabButton{
+  position: 'absolute';
+  z-index: 1;
+  top: -50;
+  left: 0;
+  right: 0;
+  margin: '50';
+  cursor: pointer;
+  background-color: #cc1d1ddc;
+  border: none;
+  color: white;
+  padding:20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  margin: 2px 4px;
+  border-radius: 100%;
+}
