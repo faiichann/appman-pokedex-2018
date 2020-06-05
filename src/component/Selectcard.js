@@ -11,8 +11,9 @@ import Grid from "@material-ui/core/Grid";
 class Listcard extends Component {
   constructor(props) {
     super(props);
-    // Don't do this!
-    this.state = { search: "", filter: [] };
+    this.state = { 
+      search: "", 
+      filter: [] };
   }
 
 
@@ -68,15 +69,14 @@ class Listcard extends Component {
 
   render() {
     return <div>
-      <Paper style={{ maxHeight: 720, overflow: "auto", maxWidth: 700 }}>
+      <Paper style={{ maxHeight: 700 ,overflow: "auto", maxWidth: 700 }}>
         <Grid container direction="row" spacing={0} justify="center" >
-
           <Grid item xs={8} style={{ textAlign: "center" }}>
             <TextField
               id="outlined-basic"
               label="Find Pokemon"
               variant="outlined"
-              style={{ width: "100%", margin: 20 }}
+              style={{ width: "100%", margin:10 }}
               onChange={(event) => this.searchPokemon(event)}
             />
           </Grid>

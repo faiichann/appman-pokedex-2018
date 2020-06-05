@@ -17,15 +17,15 @@ const Mypokedex = (props) => {
           <Grid container direction="row" spacing={0} justify="center" >
             {" "}
 
-            <List style={{ paddingBottom: 10 }}>
+            <div style={{ paddingBottom: 10 ,width:"100%",display:"flex",flexDirection:"row",flexWrap:"wrap"}} >
               {props.myList.map((item) => {
                 return (
-                  <h1>
+                 
                     <Newcard item={item} deleteSelected={props.deleteSelected} />
-                  </h1>
+                 
                 );
               })}
-            </List>
+            </div>
           </Grid>
         </Paper>
       </div>

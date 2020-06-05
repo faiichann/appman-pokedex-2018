@@ -108,7 +108,7 @@ class MyList extends Component {
 
   render() {
     return (
-      <div class="section group">
+      <div class="section group" style={{width:"50%"}}>
         <div style={{ padding: "10px" }} class="col span_2_of_2">
           <Card style={{ width: '30rem', height: '19rem' }} onMouseOver={this.show} onMouseOut={this.hide} onClick={() => this.props.deleteSelected(this.props.item)}>
             <Card.Body style={{ padding: "10px" }}>
@@ -120,7 +120,7 @@ class MyList extends Component {
                   <img class="pic" src={this.props.item.imageUrl} alt="picPokemon" />
                 </Grid>
                 <Grid item xs={6} style={{ fontSize: '10px' }}>
-                  <p style={{ float: "right", color: "#ec5656", fontSize: '20px',cursor:"pointer" }}>{this.showtext()}</p>
+                  <p style={{ float: "right", color: "#ec5656", fontSize: '10px',cursor:"pointer" }}>{this.showtext()}</p>
                   <h1>{this.props.item.name} </h1>
                   <Grid container spacing={1}>
                     <Grid item xs={6}><p>HP : </p></Grid> <Grid item xs={6}><LinearProgress style={{ height: '20px', borderRadius: '10px' }} color="secondary" variant="determinate" value={this.props.item.hp >= 100 ? 100 : this.props.item.hp} /></Grid>

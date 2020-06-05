@@ -9,7 +9,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
+
 
 // const COLORS = {
 //   Psychic: "#f8a5c2",
@@ -28,23 +28,19 @@ import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 class App extends Component {
   constructor() {
     super();
-    this.state = { modal: false, selected: [], list: [] };
+    this.state = { 
+      modal: false, 
+      selected: [], 
+      list: [] }
   }
 
-  pokedexdata = async () => {
+  async componentDidMount() {
     const list = await fetch("http://localhost:3030/api/cards");
     const res = await list.json();
     this.setState({ list: res.cards });
-
-  };
-
-  componentDidMount() {
-    this.pokedexdata();
-
   }
 
   OpenModal = (data) => {
-
     this.setState({ modal: true });
   };
   CloseModal = () => {
@@ -86,11 +82,12 @@ class App extends Component {
           aria-describedby="simple-modal-description"
           style={{
             margin: "auto",
-            paddingTop: 35,
+            paddingTop: 10,
             paddingLeft: 160,
             paddingRight: 160,
-            paddingBottom: 100,
-            maxWidth: 700
+            paddingBottom: 110,
+            maxWidth: 700,
+            maxHeight:700
           }}
         >
           <Listcard Selected={this.Selected}
