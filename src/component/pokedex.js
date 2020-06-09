@@ -14,7 +14,6 @@ class Pokedex extends Component {
       text: false }
   }
 
-
   onSelectCard = (item) => {
     this.props.Selected(item)
     this.props.deletedPokemonOnSelect(item)

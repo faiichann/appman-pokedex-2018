@@ -9,6 +9,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
+import { connect } from 'react-redux';
 
 
 // const COLORS = {
@@ -26,12 +27,13 @@ import AddIcon from '@material-ui/icons/Add';
 // }
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = { 
-      modal: false, 
-      selected: [], 
-      list: [] }
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false,
+      selected: [],
+      list: []
+    }
   }
 
   async componentDidMount() {
@@ -72,7 +74,12 @@ class App extends Component {
           <Mypokedex
             myList={this.state.selected}
             deleteSelected={this.deleteSelected}
+            username={this.props.two.name}
+            changcolor={this.props.two.color}
           />
+          <button onClick={() => {this.props.setname("I am Ironman","purple")
+          
+          }}>Malware Changname</button>
         </div>
         <Modal
           open={this.state.modal}
@@ -86,7 +93,7 @@ class App extends Component {
             paddingRight: 160,
             paddingBottom: 110,
             maxWidth: 700,
-            maxHeight:700
+            maxHeight: 700
           }}
         >
           <Listcard Selected={this.Selected}
@@ -116,4 +123,22 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStatetoProps = (state) => {
+  return {
+    one: state.one,
+    two: state.two
+  };
+}
+
+const mapDispatchtoProps = (dispatch) => {
+  return {
+    setname: (name,color) => {
+      dispatch({
+        type: "SETNAME",
+        payload: {name,color}
+      });
+    }
+  };
+}
+
+export default connect(mapStatetoProps, mapDispatchtoProps)(App);
