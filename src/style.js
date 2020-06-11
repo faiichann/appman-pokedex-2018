@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { props } from 'ramda';
 
 export const Progress = styled.progress`
 height:30px;
@@ -35,7 +34,8 @@ export const Button = styled.button`
   margin: 1em;
   padding: 0.25em 1em;
   border: 2px solid palevioletred;
-  border-radius: 3px;
+  border-radius: 10px;
+  height: 50px;
   cursor:pointer;
 
   ${
