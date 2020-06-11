@@ -5,6 +5,32 @@ import cute from '../cute.png'
 import '../App.css'
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Card from 'react-bootstrap/Card'
+import * as R from 'ramda';
+import styled from 'styled-components';
+
+
+const Progress = styled.progress`
+height:30px;
+border-radius:20px;
+display: block;
+background: #e4e4e4;
+padding: 0px;
+position:absolute;
+box-shadow:#d4d4d4;
+
+::-moz-progress-bar{
+  border-radius:20px;
+  background:#f3701a;
+};
+::-webkit-progress-bar{
+  background:transparent;
+};
+::-webkit-progress-value{
+  
+  border-radius:20px;
+  background:#f3701a;
+}
+`;
 
 
 class MyList extends Component {
@@ -29,7 +55,7 @@ class MyList extends Component {
     if (item === undefined) {
       return 0;
     } else {
-      const strength = item.length * 50;
+      const strength = R.multiply(item.length)(50)
       if (strength > 100) {
         return 100;
       } else {
@@ -41,7 +67,7 @@ class MyList extends Component {
     if (item === undefined) {
       return 0;
     } else {
-      const weak = item.length * 100;
+      const weak = R.multiply(item.length)(100)
       if (weak > 100) {
         return 100
       } else {
@@ -64,7 +90,7 @@ class MyList extends Component {
     if (item.weakness === undefined) {
       weak = 0;
     } else {
-      weak = item.weakness.length * 100;
+      weak = R.multiply(item.length)(100)
     }
     if (item.attacks === undefined) {
       damage = 0;
@@ -76,7 +102,7 @@ class MyList extends Component {
         damage = damage + intDamage
       }
     }
-    let happy = ((heal / 10) + (damage / 10) + 10 - (weak)) / 5
+    let happy = R.divide((R.divide(heal)(10)) + (R.divide(damage)(10)) + 10 - (weak))(5)
     let happyArray = []
     for (let i = 0; i < happy; i++) {
       happyArray.push("")
@@ -108,7 +134,7 @@ class MyList extends Component {
 
   render() {
     return (
-      <div class="section group" style={{width:"50%"}}>
+      <div class="section group" style={{ width: "50%" }}>
         <div style={{ padding: "10px" }} class="col span_2_of_2">
           <Card style={{ width: '30rem', height: '19rem' }} onMouseOver={this.show} onMouseOut={this.hide} onClick={() => this.props.deleteSelected(this.props.item)}>
             <Card.Body style={{ padding: "10px" }}>
@@ -120,7 +146,7 @@ class MyList extends Component {
                   <img class="pic" src={this.props.item.imageUrl} alt="picPokemon" />
                 </Grid>
                 <Grid item xs={6} style={{ fontSize: '10px' }}>
-                  <p style={{ float: "right", color: "#ec5656", fontSize: '10px',cursor:"pointer" }}>{this.showtext()}</p>
+                  <p style={{ float: "right", color: "#ec5656", fontSize: '10px', cursor: "pointer" }}>{this.showtext()}</p>
                   <h1>{this.props.item.name} </h1>
                   <Grid container spacing={1}>
                     <Grid item xs={6}><p>HP : </p></Grid> <Grid item xs={6}><LinearProgress style={{ height: '20px', borderRadius: '10px' }} color="secondary" variant="determinate" value={this.props.item.hp >= 100 ? 100 : this.props.item.hp} /></Grid>

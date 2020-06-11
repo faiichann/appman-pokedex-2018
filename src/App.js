@@ -10,7 +10,23 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
+import * as R from 'ramda';
 
+const Button = styled.button`
+  /* Adapt the colors based on primary prop */
+  /**ส่งprops เชคว่าเป็น primary หรือไม่ให้แสดงผล ถ้าไม่ :  */
+  background: ${props => props.primary ? "palevioletred" : "white"}; 
+  color: ${props => props.primary ? "white" : "palevioletred"};
+
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+  cursor:pointer;
+ 
+`;
 
 // const COLORS = {
 //   Psychic: "#f8a5c2",
@@ -58,7 +74,7 @@ class App extends Component {
       (item) => item.id !== data.id
 
     );
-    this.setState({ list: [...this.state.list, data] })
+    this.setState({ list:[...this.state.list,data]})
     this.setState({ selected: newselected });
   };
 
@@ -77,9 +93,9 @@ class App extends Component {
             username={this.props.two.name}
             changcolor={this.props.two.color}
           />
-          <button onClick={() => {this.props.setname("I am Ironman","purple")
+          <Button primary onClick={() => {this.props.setname("I am Ironman","salmon")
           
-          }}>Malware Changname</button>
+          }}>Malware Changname</Button>
         </div>
         <Modal
           open={this.state.modal}

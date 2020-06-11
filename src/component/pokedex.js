@@ -4,14 +4,40 @@ import cute from '../cute.png'
 import '../App.css'
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Card from 'react-bootstrap/Card'
+import * as R from 'ramda';
+import styled from 'styled-components';
+
+const Progress = styled.progress`
+height:30px;
+border-radius:20px;
+display: block;
+background: #e4e4e4;
+padding: 0px;
+position:absolute;
+box-shadow:#d4d4d4;
+
+::-moz-progress-bar{
+  border-radius:20px;
+  background:#f3701a;
+};
+::-webkit-progress-bar{
+  background:transparent;
+};
+::-webkit-progress-value{
+  
+  border-radius:20px;
+  background:#f3701a;
+}
+`;
 
 
 class Pokedex extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      list: [], 
-      text: false }
+    this.state = {
+      list: [],
+      text: false
+    }
   }
 
   onSelectCard = (item) => {
@@ -19,11 +45,11 @@ class Pokedex extends Component {
     this.props.deletedPokemonOnSelect(item)
   };
 
-  calStrength = (item) => {
+  Strength = (item) => {
     if (item === undefined) {
       return 0;
     } else {
-      const strength = item.length * 50
+      const strength = R.multiply(item.length)(50)
       if (strength > 100) {
         return 100;
       } else {
@@ -32,11 +58,11 @@ class Pokedex extends Component {
     }
   }
 
-  calWeak = (item) => {
+  Weak = (item) => {
     if (item === undefined) {
       return 0;
     } else {
-      const weak = item.length * 100
+      const weak = R.multiply(item.length)(100)
       if (weak > 100) {
         return 100
       } else {
@@ -45,7 +71,7 @@ class Pokedex extends Component {
     }
   }
 
-  calHappiness = (item) => {
+  Happiness = (item) => {
     let heal = null
     let damage = null
     let weak = null
@@ -58,7 +84,7 @@ class Pokedex extends Component {
     if (item.weakness === undefined) {
       weak = 0
     } else {
-      weak = item.weakness.length * 100
+      weak = R.multiply(item.weakness.length)(100)
     }
     if (item.attacks === undefined) {
       damage = 0
@@ -69,7 +95,7 @@ class Pokedex extends Component {
         damage = damage + intDamage
       }
     }
-    let happy = ((heal / 10) + (damage / 10) + 10 - (weak)) / 5
+    let happy = R.divide((R.divide(heal)(10)) + (R.divide(damage)(10)) + 10 - (weak))(5)
     let happyArray = []
     for (let i = 0; i < happy; i++) {
       happyArray.push("")
@@ -107,14 +133,16 @@ class Pokedex extends Component {
                 <img src={this.props.item.imageUrl} alt="picPokemon" />
               </Grid>
               <Grid item xs={6}>
-                <p style={{ float: "right", color: "#ec5656",cursor:"pointer" }}>{this.showtext()}</p>
+                <p style={{ float: "right", color: "#ec5656", cursor: "pointer" }}>{this.showtext()}</p>
                 <h1>{this.props.item.name}</h1>
                 <Grid container spacing={0}>
-                  <Grid item xs={6}><p>HP : </p></Grid> <Grid item xs={6}><LinearProgress style={{ height: '30px', borderRadius: '20px'}} color="secondary" variant="determinate" value={this.props.item.hp >= 100 ? 100 : this.props.item.hp} /></Grid>
-                  <Grid item xs={6}><p>Str:</p>  </Grid> <Grid item xs={6}><LinearProgress style={{ height: '30px', borderRadius: '20px' }} color="secondary" variant="determinate" value={this.calStrength(this.props.item.attacks)} /></Grid>
-                  <Grid item xs={6}><p> Weak:</p> </Grid> <Grid item xs={6}><LinearProgress style={{ height: '30px', borderRadius: '20px' }} color="secondary" variant="determinate" value={this.calWeak(this.props.item.weaknesses)} /></Grid>
+                  <Grid item xs={6}><p>HP : </p></Grid> <Grid item xs={6}><Progress value={this.props.item.hp >= 100 ? 100 : this.props.item.hp} max="100" ></Progress></Grid>
+
+                  <Grid item xs={6}><p>Str:</p>  </Grid> <Grid item xs={6}><Progress value={this.Strength(this.props.item.attacks)} max="100" /></Grid>
+
+                  <Grid item xs={6}><p> Weak:</p> </Grid> <Grid item xs={6}><Progress value={this.Weak(this.props.item.weaknesses)} max="100" /></Grid>
                 </Grid>
-                <h4> {this.calHappiness(this.props.item).map(index => {
+                <h4> {this.Happiness(this.props.item).map(index => {
                   return <img class="smile" src={cute}></img>
                 })}</h4>
               </Grid>

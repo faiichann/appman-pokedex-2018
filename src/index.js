@@ -4,7 +4,6 @@ import './index.css'
 import App from './App'
 import {Provider} from 'react-redux'
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { green } from '@material-ui/core/colors'
 
 
 //Multi state
@@ -13,14 +12,13 @@ const initialState = {
     value: []
   }
   //Muti Reducer
-  const SecondReducer = (state = { name: "faii", age: 20,color:"orange" }, action) => {
+  const SecondReducer = (state = { name: "faii", age: 20,color: "" }, action) => {
     switch (action.type) {
       case "SETNAME":
         state = {
           ...state,
           name: action.payload.name,
           color: action.payload.color
-
         }
         break;
       case "SETAGE":
