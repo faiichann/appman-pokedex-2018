@@ -6,31 +6,7 @@ import '../App.css'
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Card from 'react-bootstrap/Card'
 import * as R from 'ramda';
-import styled from 'styled-components';
-
-
-const Progress = styled.progress`
-height:30px;
-border-radius:20px;
-display: block;
-background: #e4e4e4;
-padding: 0px;
-position:absolute;
-box-shadow:#d4d4d4;
-
-::-moz-progress-bar{
-  border-radius:20px;
-  background:#f3701a;
-};
-::-webkit-progress-bar{
-  background:transparent;
-};
-::-webkit-progress-value{
-  
-  border-radius:20px;
-  background:#f3701a;
-}
-`;
+import {Progress} from '../style'
 
 
 class MyList extends Component {
@@ -135,10 +111,11 @@ class MyList extends Component {
   render() {
     return (
       <div class="section group" style={{ width: "50%" }}>
-        <div style={{ padding: "10px" }} class="col span_2_of_2">
+        <div style={{ padding: "10px" }}>
           <Card style={{ width: '30rem', height: '19rem' }} onMouseOver={this.show} onMouseOut={this.hide} onClick={() => this.props.deleteSelected(this.props.item)}>
             <Card.Body style={{ padding: "10px" }}>
               <Grid container
+                spacing={1}
                 direction="row"
                 justify="center"
                 alignItems="center">
@@ -149,9 +126,11 @@ class MyList extends Component {
                   <p style={{ float: "right", color: "#ec5656", fontSize: '10px', cursor: "pointer" }}>{this.showtext()}</p>
                   <h1>{this.props.item.name} </h1>
                   <Grid container spacing={1}>
-                    <Grid item xs={6}><p>HP : </p></Grid> <Grid item xs={6}><LinearProgress style={{ height: '20px', borderRadius: '10px' }} color="secondary" variant="determinate" value={this.props.item.hp >= 100 ? 100 : this.props.item.hp} /></Grid>
-                    <Grid item xs={6}><p>Str:</p>  </Grid> <Grid item xs={6}><LinearProgress style={{ height: '20px', borderRadius: '10px' }} color="secondary" variant="determinate" value={this.Strength(this.props.item.attacks)} /></Grid>
-                    <Grid item xs={6}><p> Weak:</p> </Grid> <Grid item xs={6}><LinearProgress style={{ height: '20px', borderRadius: '10px' }} color="secondary" variant="determinate" value={this.Weak(this.props.item.weaknesses)} /></Grid>
+                  <Grid item xs={6}><p>HP : </p></Grid> <Grid item xs={6}><Progress value={this.props.item.hp >= 100 ? 100 : this.props.item.hp} max="100" ></Progress></Grid>
+
+                  <Grid item xs={6}><p>Str:</p>  </Grid> <Grid item xs={6}><Progress value={this.Strength(this.props.item.attacks)} max="100" /></Grid>
+
+                  <Grid item xs={6}><p> Weak:</p> </Grid> <Grid item xs={6}><Progress value={this.Weak(this.props.item.weaknesses)} max="100" /></Grid>
                   </Grid>
                   <h4> {this.Happiness(this.props.item).map(index => {
                     return <img class="smile" src={cute}></img>
