@@ -2,33 +2,10 @@ import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import cute from '../cute.png'
 import '../App.css'
-import LinearProgress from '@material-ui/core/LinearProgress';
 import Card from 'react-bootstrap/Card'
 import * as R from 'ramda';
-import styled from 'styled-components';
+import {Progress} from '../style'
 
-const Progress = styled.progress`
-height:30px;
-border-radius:20px;
-display: block;
-background: #e4e4e4;
-padding: 0px;
-position:absolute;
-box-shadow:#d4d4d4;
-
-::-moz-progress-bar{
-  border-radius:20px;
-  background:#f3701a;
-};
-::-webkit-progress-bar{
-  background:transparent;
-};
-::-webkit-progress-value{
-  
-  border-radius:20px;
-  background:#f3701a;
-}
-`;
 
 
 class Pokedex extends Component {
