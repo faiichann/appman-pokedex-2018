@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import cute from '../cute.png'
 import '../App.css'
-import LinearProgress from '@material-ui/core/LinearProgress';
 import Card from 'react-bootstrap/Card'
 import * as R from 'ramda';
 import {Progress} from '../style'

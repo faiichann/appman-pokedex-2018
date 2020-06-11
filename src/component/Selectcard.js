@@ -24,7 +24,6 @@ class Listcard extends Component {
     } else {
       const namelist = this.props.list;
       const search = namelist.filter(({ name }) =>
-
         name.toLowerCase().includes(event.target.value.toLowerCase())
       );
 
