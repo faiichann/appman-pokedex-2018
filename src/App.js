@@ -10,23 +10,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
+import {Button} from './style';
 import * as R from 'ramda';
 
-const Button = styled.button`
-  /* Adapt the colors based on primary prop */
-  /**ส่งprops เชคว่าเป็น primary หรือไม่ให้แสดงผล ถ้าไม่ :  */
-  background: ${props => props.primary ? "palevioletred" : "white"}; 
-  color: ${props => props.primary ? "white" : "palevioletred"};
-
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
-  cursor:pointer;
- 
-`;
 
 // const COLORS = {
 //   Psychic: "#f8a5c2",
@@ -93,7 +79,7 @@ class App extends Component {
             username={this.props.two.name}
             changcolor={this.props.two.color}
           />
-          <Button primary onClick={() => {this.props.setname("I am Ironman","salmon")
+          <Button primary second onClick={() => {this.props.setname("I am Ironman","salmon")
           
           }}>Malware Changname</Button>
         </div>
@@ -122,7 +108,7 @@ class App extends Component {
           position: 'absolute'
         }}>
           <Toolbar  >
-            <Fab color="secondary" aria-labal="add" style={{
+            <Fab color="secondary"  style={{
               position: 'absolute',
               zIndex: 1,
               top: -30,

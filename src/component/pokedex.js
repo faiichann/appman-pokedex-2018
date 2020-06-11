@@ -6,8 +6,6 @@ import Card from 'react-bootstrap/Card'
 import * as R from 'ramda';
 import {Progress} from '../style'
 
-
-
 class Pokedex extends Component {
   constructor(props) {
     super(props);
@@ -103,8 +101,8 @@ class Pokedex extends Component {
   render() {
     return (
       <div style={{ padding: "20px" }}>
-        <Card style={{ width: '40rem' }} className="aAASa" onMouseOver={this.show} onMouseOut={this.hide} onClick={() => this.onSelectCard(this.props.item)} >
-          <Card.Body style={{ padding: "5px" }}>
+        <Card style={{ width: '40rem' }}  onMouseOver={this.show} onMouseOut={this.hide} onClick={() => this.onSelectCard(this.props.item)} >
+          <Card.Body style={{ padding: "10px",margin:"2px"}}>
             <Grid container spacing={1}>
               <Grid item xs={6}>
                 <img src={this.props.item.imageUrl} alt="picPokemon" />
