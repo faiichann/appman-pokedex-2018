@@ -4,14 +4,12 @@ import "./App.css";
 import Listcard from "./component/Selectcard";
 import Modal from "@material-ui/core/Modal";
 import Mypokedex from "./component/Mypokedex";
-// import Button from "@material-ui/core/Button";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import { connect } from 'react-redux';
 import {Button} from './style';
-import * as R from 'ramda';
 
 
 // const COLORS = {
@@ -99,7 +97,7 @@ class App extends Component {
           }}
         >
           <Listcard Selected={this.Selected}
-            list={this.state.list} newlist={this.newlist} />
+            list={this.state.list} newlist={this.newlist}  />
         </Modal>
         <AppBar position="fixed" color="secondary" style={{
           top: 'auto',

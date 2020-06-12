@@ -5,7 +5,6 @@ import App from './App'
 import {Provider} from 'react-redux'
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
-
 //Multi state
 const initialState = {
     result: 15000,
