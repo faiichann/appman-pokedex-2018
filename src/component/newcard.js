@@ -109,7 +109,7 @@ class MyList extends Component {
 
   render() {
     return (
-      <div class="section group" style={{ width: "50%" }}>
+      <div className="section group" style={{ width: "50%" }}>
         <div style={{ padding: "10px" }}>
           <Card style={{ width: '30rem', height: '19rem' }} onMouseOver={this.show} onMouseOut={this.hide} onClick={() => this.props.deleteSelected(this.props.item)}>
             <Card.Body style={{ padding: "10px" }}>
@@ -119,7 +119,7 @@ class MyList extends Component {
                 justify="center"
                 alignItems="center">
                 <Grid item xs={6}>
-                  <img class="pic" src={this.props.item.imageUrl} alt="picPokemon" />
+                  <img className="pic" src={this.props.item.imageUrl} alt="picPokemon" />
                 </Grid>
                 <Grid item xs={6} style={{ fontSize: '10px' }}>
                   <p style={{ float: "right", color: "#ec5656", fontSize: '10px', cursor: "pointer" }}>{this.showtext()}</p>
@@ -132,7 +132,7 @@ class MyList extends Component {
                   <Grid item xs={6}><p> Weak:</p> </Grid> <Grid item xs={6}><Progress value={this.Weak(this.props.item.weaknesses)} max="100" /></Grid>
                   </Grid>
                   <h4> {this.Happiness(this.props.item).map(index => {
-                    return <img class="smile" src={cute}></img>
+                    return <img className="smile" src={cute}></img>
                   })}</h4>
                 </Grid>
               </Grid>

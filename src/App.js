@@ -70,7 +70,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <div class="back" >
+        <div className="back" >
           <Mypokedex
             myList={this.state.selected}
             deleteSelected={this.deleteSelected}

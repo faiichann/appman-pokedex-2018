@@ -118,7 +118,7 @@ class Pokedex extends Component {
                   <Grid item xs={6}><p> Weak:</p> </Grid> <Grid item xs={6}><Progress value={this.Weak(this.props.item.weaknesses)} max="100" /></Grid>
                 </Grid>
                 <h4> {this.Happiness(this.props.item).map(index => {
-                  return <img class="smile" src={cute}></img>
+                  return <img className="smile" src={cute}></img>
                 })}</h4>
               </Grid>
             </Grid>
