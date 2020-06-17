@@ -26,7 +26,7 @@ import {Button} from './style';
 //   Fire: "#eb4d4b"
 // }
 
-class App extends Component {
+export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,7 +36,7 @@ class App extends Component {
     }
   }
 
-  async componentDidMount() {
+   async componentDidMount() {
     const list = await fetch("http://localhost:3030/api/cards");
     const res = await list.json();
     this.setState({ list: res.cards });
@@ -123,14 +123,14 @@ class App extends Component {
   }
 }
 
-const mapStatetoProps = (state) => {
+export const mapStatetoProps = (state) => {
   return {
     one: state.one,
     two: state.two
   };
 }
 
-const mapDispatchtoProps = (dispatch) => {
+export const mapDispatchtoProps = (dispatch) => {
   return {
     setname: (name,color) => {
       dispatch({
